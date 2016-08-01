@@ -14,7 +14,7 @@ class GerroDotpayServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-                __DIR__.'/Gerro/Dotpay/config/dotpay.php'=>config_path('dotpay.php'),
+                __DIR__.'/config/dotpay.php'=>config_path('dotpay.php'),
             ]);
     }
 
