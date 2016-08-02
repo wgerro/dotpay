@@ -11,6 +11,24 @@ Add provider to /config/app.php
 Copy to command
 <div class="highlight highlight-source-shell"><pre>php artisan vendor:publish --provider="Gerro\Dotpay\GerroDotpayServiceProvider"</pre></div>
 
+#Config/dotpay.php
+<div class="highlight highlight-source-shell">
+<pre>
+return [
+	#id,pin
+	'Account'=>[
+		'dotpayId'=>'123456',
+		'dotpayPin'=>'IvvvSbaR8J9YD3MF5nnr67CvTa1KVVVV'
+	],
+	#url
+	'Services'=>[
+		'production'=>'https://ssl.dotpay.pl/t2/',
+		'test'=>'https://ssl.dotpay.pl/test_payment/'
+	]
+];
+</pre>
+</div>
+
 #Routes.php
 If you want to test it to add to the line
 <div class="highlight highlight-source-shell">
