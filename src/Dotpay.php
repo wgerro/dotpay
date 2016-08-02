@@ -28,7 +28,7 @@ class Dotpay extends Model
 		return Config::get('dotpay.Account.dotpayPin');
 	}
     /*
-    * Sprawdzanie czy jest komplet 
+    * CHECK IS COMPLETED
     */
     public function checkCompleted($status, $id, $amount, $control){
         if($status == 'completed' && $id == $this->dotpayId() && !is_null($control)  && !is_null($amount)){
@@ -42,7 +42,7 @@ class Dotpay extends Model
         }
     }
     /*
-    * Dane do wyslania z formularza
+    * SET PARAMETERS
     */
     public function parametersSetArray($array){
         foreach($array as $key=>$ar){
@@ -53,7 +53,7 @@ class Dotpay extends Model
         return $array;
     }
     /*
-    * Generator chk
+    * GENERATOR CHK
     */
     public function chkValue($ParametersArray){
         $dotpayId = $this->dotpayId();
@@ -186,7 +186,7 @@ class Dotpay extends Model
         return hash('sha256',$chkParameters); //key chk
     }
     /*
-    * Environment
+    * ENVIRONMENT (PRODUCTION OR TEST)
     */
     public function environment($env){
         if($env == 'production')
@@ -203,18 +203,17 @@ class Dotpay extends Model
         }
     }
     /*
-    * Method
+    * Method POST OR GET
     */
     public function redirectionMethod($method){
         return strtoupper($method);
     }
     /*
-    * Button dotpay,form,a
+    * FORM OR <A HREF>
     */
     public function buttonDotpay($environment, $redirectionMethod, $chkValue, $array){
         if($redirectionMethod == 'POST'){
             $redirection = '<form action="'.$environment.'" method="POST" id="dotpay_redirection_form">'.PHP_EOL;
-            $redirection .= "\t".'<input name="_token" value="'.csrf_token().'" type="hidden"/>'.PHP_EOL;
             foreach($array as $key=>$value)
             {
                 $redirection .= "\t".'<input name="'.$key.'" value="'.$value.'" type="hidden"/>'.PHP_EOL;
