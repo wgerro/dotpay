@@ -8,6 +8,9 @@ Dotpay for laravel 5.2
 Add provider to /config/app.php
 <div class="highlight highlight-source-shell"><pre>Gerro\Dotpay\GerroDotpayServiceProvider::class,</pre></div>
 
+Add aliases to /config/app.php
+<div class="highlight highlight-source-shell"><pre>'Dotpay'=> Gerro\Dotpay\Facades\Dotpay::class,</pre></div>
+
 Copy to command
 <div class="highlight highlight-source-shell"><pre>php artisan vendor:publish --provider="Gerro\Dotpay\GerroDotpayServiceProvider"</pre></div>
 
