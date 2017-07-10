@@ -1,6 +1,6 @@
 # dotpay
 
-Dotpay for laravel 5.2
+Dotpay for laravel (5.2, 5.3, 5.4)
 
 #Installation
 <div class="highlight highlight-source-shell"><pre>composer require gerro/dotpay</pre></div>
