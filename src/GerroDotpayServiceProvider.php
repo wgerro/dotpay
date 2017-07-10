@@ -25,8 +25,13 @@ class GerroDotpayServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app['dotpay'] = $this->app->share(function($app)
+        /* 
+        $this->app['dotpay'] = $this->app->singleton(function($app)
         {
+            return new Dotpay();
+        });
+        */
+        $this->app->singleton(Dotpay::class, function($app){
             return new Dotpay();
         });
     }
